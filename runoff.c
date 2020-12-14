@@ -133,8 +133,8 @@ bool vote(int voter, int rank, string name)
         int valid_vote = strcmp(candidates[i].name, name);
         if (valid_vote == 0)
         {
-              preferences[voter][rank] = i;
-              return true;
+            preferences[voter][rank] = i;
+            return true;
         }
     }
     return false;
@@ -165,7 +165,7 @@ void tabulate(void)
 // Print the winner of the election, if there is one
 bool print_winner(void)
 {
-    float majority = ceil(voter_count/2);
+    float majority = ceil(voter_count / 2);
     for (int i = 0; i < candidate_count; i++)
     {
         if (candidates[i].votes > majority)
@@ -197,12 +197,12 @@ bool is_tie(int min)
 {
     for (int i = 0; i < candidate_count; i++)
     {
-         if (candidates[i].votes == min)
+        if (candidates[i].votes > min)
         {
-            return true;
+            return false;
         }
     }
-    return false;
+    return true;
 }
 
 // Eliminate the candidate (or candidates) in last place
